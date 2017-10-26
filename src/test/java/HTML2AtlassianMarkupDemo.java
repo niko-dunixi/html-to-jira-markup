@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class HTML2AtlassianMarkupDemo {
 
@@ -25,5 +26,11 @@ public class HTML2AtlassianMarkupDemo {
         DefaultWysiwygConverter converter = new DefaultWysiwygConverter();
         String wikiMarkupString = converter.convertXHtmlToWikiMarkup(htmlString);
         assertEquals("This is _emphasized_ and *bold*", wikiMarkupString);
+    }
+
+    @Test
+    @DisplayName("This test should fail, but doesn't")
+    public void testShouldFail() {
+        fail("This should fail, and does in intellij but not with \"mvn test\"");
     }
 }
