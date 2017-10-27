@@ -82,7 +82,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20.1</version>
+                <version>2.19.1</version>
                 <dependencies>
                     <dependency>
                         <groupId>org.junit.platform</groupId>
@@ -95,6 +95,14 @@
                         <version>${junit-jupiter.version}</version>
                     </dependency>
                 </dependencies>
+                <configuration>
+                    <includes>
+                        <include>**/Test*.java</include>
+                        <include>**/*Test.java</include>
+                        <include>**/*Tests.java</include>
+                        <include>**/*TestCase.java</include>
+                    </includes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
