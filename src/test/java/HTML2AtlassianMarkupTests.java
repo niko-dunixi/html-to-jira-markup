@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class HTML2AtlassianMarkupDemo {
+public class HTML2AtlassianMarkupTests {
 
     @Test
     @DisplayName("Test HTML is Properly Converted to Atlassian Markup")
@@ -20,7 +20,7 @@ public class HTML2AtlassianMarkupDemo {
     @Test
     @DisplayName("Test HTML is Properly Converted to Atlassian Markup - With JSOUP Cleaning")
     public void testHTMLIsProperlyConvertedAfterCleaned() {
-        String htmlString = "This is <em>emphasized</em> and <b>bold</b>";
+        String htmlString = "This is <em>emphasized</em> and <b>bold</b> <hr>";
         htmlString = Jsoup.clean(htmlString, Whitelist.relaxed());
         DefaultWysiwygConverter converter = new DefaultWysiwygConverter();
         String wikiMarkupString = converter.convertXHtmlToWikiMarkup(htmlString);
