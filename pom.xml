@@ -81,6 +81,7 @@
     <build>
         <plugins>
             <plugin>
+                <!-- http://junit.org/junit5/docs/current/user-guide/#running-tests-build-maven -->
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
                 <dependencies>
