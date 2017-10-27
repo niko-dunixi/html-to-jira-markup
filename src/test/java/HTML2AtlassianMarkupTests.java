@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class HTML2AtlassianMarkupDemo {
+public class HTML2AtlassianMarkupTests {
 
     @Test
     @DisplayName("Test HTML is Properly Converted to Atlassian Markup")
@@ -29,7 +29,7 @@ public class HTML2AtlassianMarkupDemo {
     }
 
     @Test
-    @DisplayName("This test should fail, but doesn't")
+    @DisplayName("This test should fail in \"mvn test\", but doesn't")
     public void testShouldFail() {
         fail("This should fail, and does in intellij but not with \"mvn test\"");
     }
