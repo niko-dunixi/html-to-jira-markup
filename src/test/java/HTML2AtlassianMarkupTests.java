@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class HTML2AtlassianMarkupTests {
 
@@ -71,5 +72,25 @@ public class HTML2AtlassianMarkupTests {
                 "| Jill | Smith | 50 |\n" +
                 "| Eve | Jackson | 94 |\n" +
                 "| John | Doe | 80 |", wikiMarkupString);
+    }
+
+    /**
+     * Written as a demo for the reply on the atlassian formums:
+     * @see <a href="https://community.atlassian.com/t5/Jira-questions/How-to-convert-html-to-Atlassian-markup-in-java-app/qaq-p/657726#M266074">Atlassian Forum Reply</a>
+     */
+    @Test
+    @DisplayName("Test HTML with inline style")
+    public void testHtmlWithInlineStyle() {
+        DefaultWysiwygConverter converter = new DefaultWysiwygConverter();
+
+        String htmlInlineStyleString = "<div><span style=\"font-style:italic;\">Test Italic</span></div>";
+        String wikiMarkupInlineStyleString = converter.convertXHtmlToWikiMarkup(htmlInlineStyleString);
+
+        String expected = "_Test Italic_";
+        assertNotEquals(expected, wikiMarkupInlineStyleString, "Inline styles are not apparently supported, if this changes in the future this assertion will need to be updated.");
+
+        String htmlITagString = "<div><i>Test Italic</i></div>";
+        String wikiMarkupITagString = converter.convertXHtmlToWikiMarkup(htmlITagString);
+        assertEquals(expected, wikiMarkupITagString);
     }
 }
